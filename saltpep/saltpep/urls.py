@@ -20,5 +20,5 @@ from ideasDB.views import *
 
 
 urlpatterns = [
-    path('', include('ideasDB.urls'))
+    path('api/', include('ideasDB.urls'))
 ]
