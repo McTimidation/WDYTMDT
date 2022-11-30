@@ -10,3 +10,4 @@ class CustomUser(AbstractUser):
 
 class Outing(models.Model):
     name = models.CharField(max_length=30)
+    price = models.IntegerField()

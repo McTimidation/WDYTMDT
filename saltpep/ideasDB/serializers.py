@@ -4,4 +4,4 @@ from .models import Outing
 class OutingSerializer(serializers.ModelSerializer):
     class Meta:
         model = Outing
-        fields = ['name']
+        fields = ['id', 'name', 'price']
