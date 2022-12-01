@@ -9,5 +9,8 @@ router = routers.DefaultRouter()
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(router.urls)),
-    path('outings/', RetrieveOutingView.as_view())
+    path('outings/', RetrieveOutingView.as_view()),
+    path('yelpView/', YelpView),
+    # path('yelpView/<term>/<price>/', YelpView),
+    # path('yelpView/<term>/', YelpView)
 ]
