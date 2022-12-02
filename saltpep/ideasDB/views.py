@@ -2,7 +2,8 @@ from django.shortcuts import render
 from .serializers import OutingSerializer
 from rest_framework import generics
 from .models import Outing
-import requests, json
+import requests
+import json
 from django.http import HttpResponse
 
 

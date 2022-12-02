@@ -1,0 +1,65 @@
+[
+{
+    "model": "ideasDB.outing",
+    "pk": 1,
+    "fields": {
+        "name": "Brunch"
+    }
+},
+{
+    "model": "ideasDB.outing",
+    "pk": 2,
+    "fields": {
+        "name": "Dinner"
+    }
+},
+{
+    "model": "ideasDB.outing",
+    "pk": 3,
+    "fields": {
+        "name": "Breakfast"
+    }
+},
+{
+    "model": "ideasDB.outing",
+    "pk": 4,
+    "fields": {
+        "name": "Hit the Club"
+    }
+},
+{
+    "model": "ideasDB.outing",
+    "pk": 5,
+    "fields": {
+        "name": "Weekend Getaway"
+    }
+},
+{
+    "model": "ideasDB.outing",
+    "pk": 6,
+    "fields": {
+        "name": "Live Event"
+    }
+},
+{
+    "model": "ideasDB.outing",
+    "pk": 7,
+    "fields": {
+        "name": "Competitive Fun"
+    }
+},
+{
+    "model": "ideasDB.outing",
+    "pk": 8,
+    "fields": {
+        "name": "Seasonal Activity"
+    }
+},
+{
+    "model": "ideasDB.outing",
+    "pk": 9,
+    "fields": {
+        "name": "Family Friendly"
+    }
+}
+]
