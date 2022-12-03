@@ -8,12 +8,11 @@ router = routers.DefaultRouter()
 # router.register(r'outings', RetrieveOutingView)
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', include(router.urls)),
-    path('outings/', RetrieveOutingView.as_view()),
-    path('yelpView/', YelpView),
+    # path('', include(router.urls)),
+    # path('outings/', RetrieveOutingView.as_view()),
+    # path('yelpView/', YelpView),
+    path('user/create/', CustomUserCreate.as_view(), name="create_user"),
     path('token/obtain/', jwt_views.TokenObtainPairView.as_view(), name='token_create'),  # override sjwt stock token
     path('token/refresh/', jwt_views.TokenRefreshView.as_view(), name='token_refresh'),
-    # path('yelpView/<term>/<price>/', YelpView),
-    # path('yelpView/<term>/', YelpView)
+
 ]
