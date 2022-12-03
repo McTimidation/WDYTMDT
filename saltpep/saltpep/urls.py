@@ -19,6 +19,7 @@ from rest_framework import routers
 from ideasDB.views import *
 
 
+
 urlpatterns = [
-    path('api/', include('ideasDB.urls'))
+    path('api/', include('ideasDB.urls')),
 ]
