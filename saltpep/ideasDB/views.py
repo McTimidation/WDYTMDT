@@ -1,7 +1,7 @@
 from django.shortcuts import render
-from .serializers import OutingSerializer, CustomUserSerializer
+from .serializers import *
 from rest_framework import generics, permissions, status
-from .models import Outing
+from .models import *
 import requests
 import json
 from django.http import HttpResponse
@@ -42,4 +42,11 @@ def YelpView(request):
     data = response.json()
     return HttpResponse(json.dumps(data), content_type="application/json")
 
+class RetrieveActivityView(generics.ListCreateAPIView):
+    queryset = Activity.objects.all()
+    serializer_class = ActivitySerializer
+
+class RetrieveUserActivityView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = UserActivity.objects.all()
+    serializer_class = UserActivitySerializer
 
