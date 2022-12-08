@@ -1,10 +1,25 @@
 from django.shortcuts import render
-from .serializers import OutingSerializer
-from rest_framework import generics
-from .models import Outing
+from .serializers import *
+from rest_framework import generics, permissions, status
+from .models import *
 import requests
 import json
 from django.http import HttpResponse
+from rest_framework_simplejwt.views import TokenObtainPairView
+from rest_framework.response import Response
+from rest_framework.views import APIView
+
+class CustomUserCreate(APIView):
+    permission_classes = (permissions.AllowAny,)
+
+    def post(self, request, format='json'):
+        serializer = CustomUserSerializer(data=request.data)
+        if serializer.is_valid():
+            user = serializer.save()
+            if user:
+                json = serializer.data
+                return Response(json, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
 class RetrieveOutingView(generics.ListAPIView):
@@ -27,4 +42,11 @@ def YelpView(request):
     data = response.json()
     return HttpResponse(json.dumps(data), content_type="application/json")
 
+class RetrieveActivityView(generics.ListCreateAPIView):
+    queryset = Activity.objects.all()
+    serializer_class = ActivitySerializer
+
+class RetrieveUserActivityView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = UserActivity.objects.all()
+    serializer_class = UserActivitySerializer
 
