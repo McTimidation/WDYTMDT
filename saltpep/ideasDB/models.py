@@ -25,6 +25,7 @@ class Outing(models.Model):
     
 
 class Activity(models.Model):
+    user = models.ForeignKey(CustomUser, on_delete=models.SET_NULL, blank=True, null=True)
     name= models.CharField(max_length=50)
     phone = models.CharField(max_length=12)
     picture_url = models.URLField(max_length=300)
@@ -32,14 +33,15 @@ class Activity(models.Model):
     city = models.CharField(max_length=50)
     state = models.CharField(max_length=30)
     address = models.CharField(max_length=75)
+    created_at = models.DateField(auto_now=True)
+    scheduled_for = models.DateTimeField(auto_now=False, auto_now_add=False, null=True)
+    completed_on = models.DateTimeField(auto_now=False, auto_now_add=False, null=True)
 
 
 class UserActivity(models.Model):
     user = models.ForeignKey(CustomUser, on_delete=models.SET_NULL, blank=True, null=True)
     activity = models.ForeignKey(Activity, on_delete=models.SET_NULL, blank=True, null=True)
-    created_at = models.DateField(auto_now=True)
-    schduled_for = models.DateTimeField(auto_now=False, auto_now_add=False, null=True)
-    completed_on = models.DateTimeField(auto_now=False, auto_now_add=False, null=True)
+    
 
 
 

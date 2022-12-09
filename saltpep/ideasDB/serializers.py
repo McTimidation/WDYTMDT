@@ -31,13 +31,14 @@ class OutingSerializer(serializers.ModelSerializer):
         fields = ['id', 'name']
 
 class ActivitySerializer(serializers.ModelSerializer):
+    user = UserListingField(queryset=CustomUser.objects.all())
     class Meta:
         model = Activity
-        fields = ['name', 'phone', 'picture_url', 'city', 'state', 'address']
+        fields = ['name', 'phone', 'picture_url', 'city', 'state', 'address', 'created_at', 'scheduled_for', 'completed_on']
 
 class UserActivitySerializer(serializers.ModelSerializer):
     user = UserListingField(queryset=CustomUser.objects.all())
     activity = ActivityListingField(queryset=Activity.objects.all())
     class Meta:
         model = UserActivity
-        fields = ['user', 'activity', 'created_at', 'scheduled_for', 'completed_on']
+        fields = ['user', 'activity']
