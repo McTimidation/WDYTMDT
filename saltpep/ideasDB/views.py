@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .serializers import *
-from rest_framework import generics, permissions, status
+from rest_framework import generics, permissions, status, viewsets
 from .models import *
 import requests
 import json
@@ -35,14 +35,11 @@ def YelpView(request):
         "accept": "application/json",
         "Authorization": "Bearer MirzBJCP0rFnEzwjGZKMhO8tiXa3oyOeJO7JpCIr7ExtZAmAmScyj4wjuMlrR28Msy97mfUV7GDnEXLNak8-gSn8ReYrVhTj9vrrgrgjM86SnIuXeCUytkvY1nOHY3Yx"
     }
-    # term = self.request.GET.get('term')
-    print(term)
-    print(price)
     response = requests.get(url, headers=headers)
     data = response.json()
     return HttpResponse(json.dumps(data), content_type="application/json")
 
-class RetrieveActivityView(generics.ListCreateAPIView):
+class RetrieveActivityView(viewsets.ModelViewSet):
     queryset = Activity.objects.all()
     serializer_class = ActivitySerializer
 

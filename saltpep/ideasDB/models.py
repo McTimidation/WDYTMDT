@@ -26,7 +26,7 @@ class Outing(models.Model):
 
 class Activity(models.Model):
     user = models.ForeignKey(CustomUser, on_delete=models.SET_NULL, blank=True, null=True)
-    name= models.CharField(max_length=50)
+    name = models.CharField(max_length=50)
     phone = models.CharField(max_length=12)
     picture_url = models.URLField(max_length=300)
     rating = models.FloatField()

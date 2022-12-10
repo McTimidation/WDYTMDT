@@ -3,10 +3,10 @@ from .models import *
 
 class UserListingField(serializers.RelatedField):
     def to_representation(self, instance):
-        return instance.title
+        return instance.username
 
     def to_internal_value(self, data):
-        return CustomUser.objects.get(username=data)
+        return CustomUser.objects.get(id=data)
 
 
 class OutingListingField(serializers.RelatedField):

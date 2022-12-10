@@ -5,7 +5,7 @@ from .views import *
 from rest_framework_simplejwt import views as jwt_views
 
 router = routers.DefaultRouter()
-# router.register(r'outings', RetrieveOutingView)
+router.register(r'activities', RetrieveActivityView, basename='activities')
 
 urlpatterns = [
     path('', include(router.urls)),
@@ -13,7 +13,7 @@ urlpatterns = [
 
     path('yelpView/', YelpView),
 
-    path('Activities/', RetrieveActivityView.as_view()),
+    # path('Activities/', RetrieveActivityView.as_view()),
 
     path('UserActivity/', RetrieveUserActivityView.as_view()),
     path('UserActivity/<int:pk>/', RetrieveUserActivityView.as_view()),

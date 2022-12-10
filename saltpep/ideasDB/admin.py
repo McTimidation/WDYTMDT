@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import CustomUser, Outing
+from .models import CustomUser, Outing, Activity
 
 class CustomUserAdmin(admin.ModelAdmin):
     model = CustomUser
