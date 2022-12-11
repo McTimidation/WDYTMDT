@@ -35,7 +35,10 @@ class Activity(models.Model):
     address = models.CharField(max_length=75)
     created_at = models.DateField(auto_now=True)
     scheduled_for = models.DateTimeField(auto_now=False, auto_now_add=False, null=True)
-    completed_on = models.DateTimeField(auto_now=False, auto_now_add=False, null=True)
+    completed = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.name
 
 
 class UserActivity(models.Model):

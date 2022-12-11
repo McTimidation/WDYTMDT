@@ -43,6 +43,11 @@ class RetrieveActivityView(viewsets.ModelViewSet):
     queryset = Activity.objects.all()
     serializer_class = ActivitySerializer
 
+    def get_queryset(self):
+        username = self.request.user
+        return Activity.objects.filter(user=username)
+
+
 class RetrieveUserActivityView(generics.RetrieveUpdateDestroyAPIView):
     queryset = UserActivity.objects.all()
     serializer_class = UserActivitySerializer

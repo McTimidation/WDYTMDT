@@ -8,7 +8,7 @@ from .fields import *
 class CustomUserSerializer(serializers.ModelSerializer):
 
     username = serializers.CharField()
-    password = serializers.CharField(min_length=8, write_only=True)
+    password = serializers.CharField(min_length=5, write_only=True)
     # activities = UserActivityListingField(many=True, queryset=UserActivity.objects.all(), required=False)
 
     class Meta:
@@ -34,7 +34,7 @@ class ActivitySerializer(serializers.ModelSerializer):
     user = UserListingField(queryset=CustomUser.objects.all())
     class Meta:
         model = Activity
-        fields = ['user', 'name', 'phone', 'picture_url', 'rating', 'city', 'state', 'address', 'created_at', 'scheduled_for', 'completed_on']
+        fields = ['id', 'user', 'name', 'phone', 'picture_url', 'rating', 'city', 'state', 'address', 'created_at', 'scheduled_for', 'completed']
 
 class UserActivitySerializer(serializers.ModelSerializer):
     user = UserListingField(queryset=CustomUser.objects.all())

@@ -7,4 +7,5 @@ class CustomUserAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Outing)
+admin.site.register(Activity)
 admin.site.register(CustomUser, CustomUserAdmin)

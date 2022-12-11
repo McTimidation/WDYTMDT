@@ -73,10 +73,10 @@ else:
 ALLOWED_HOSTS = ['*']
 
 
-# CSRF_TRUSTED_ORIGINS = [
-#     'https://*.gitpod.io',
-#     'https://*.appspot.com',
-# ]
+CSRF_TRUSTED_ORIGINS = [
+    'https://*.gitpod.io',
+    'https://*.appspot.com',
+]
 
 CORS_ALLOWED_ORIGIN_REGEXES = [
     r"^https://.*\.gitpod\.io$",
@@ -140,7 +140,7 @@ WSGI_APPLICATION = 'saltpep.wsgi.application'
 DATABASES = {"default": env.db()}
 
 # If the flag as been set, configure to use proxy
-if os.getenv("c", None):
+if os.getenv("USE_CLOUD_SQL_AUTH_PROXY", None):
     DATABASES["default"]["HOST"] = "127.0.0.1"
     DATABASES["default"]["PORT"] = 5432
 
