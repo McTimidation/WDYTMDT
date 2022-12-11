@@ -29,7 +29,7 @@ class RetrieveOutingView(generics.ListAPIView):
 def YelpView(request):
     price = request.GET.get('price')
     term = f"term={request.GET.get('term')}"
-    url = f"https://api.yelp.com/v3/businesses/search?location=Lexington&{term}&categories=&price={price}&sort_by=best_match&matches_party_size_param=true&limit=3"
+    url = f"https://api.yelp.com/v3/businesses/search?location=Lexington&{term}&categories=&price={price}&sort_by=best_match&matches_party_size_param=true&limit=5"
 
     headers = {
         "accept": "application/json",
