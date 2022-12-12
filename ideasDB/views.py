@@ -27,9 +27,19 @@ class RetrieveOutingView(generics.ListAPIView):
     serializer_class = OutingSerializer
 
 def YelpView(request):
+    
+    city = request.GET.get('city')
+    lat = request.GET.get('lat')
+    lng = request.GET.get('lng')
+    if city:
+        print('city sent')
+        queryParam = f"location={city}"
+    else:
+        print('something else sent')
+        queryParam = f"latitude={lat}&longitude={lng}"
     price = request.GET.get('price')
     term = f"term={request.GET.get('term')}"
-    url = f"https://api.yelp.com/v3/businesses/search?location=Lexington&{term}&categories=&price={price}&sort_by=best_match&matches_party_size_param=true&limit=5"
+    url = f"https://api.yelp.com/v3/businesses/search?{queryParam}&{term}&categories=&price={price}&sort_by=best_match&matches_party_size_param=true&limit=5"
 
     headers = {
         "accept": "application/json",
