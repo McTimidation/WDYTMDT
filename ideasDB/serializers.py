@@ -34,7 +34,7 @@ class ActivitySerializer(serializers.ModelSerializer):
     user = UserListingField(queryset=CustomUser.objects.all())
     class Meta:
         model = Activity
-        fields = ['id', 'user', 'name', 'phone', 'picture_url', 'rating', 'city', 'state', 'address', 'created_at', 'scheduled_for', 'completed']
+        fields = ['id', 'user', 'name', 'phone', 'picture_url', 'rating', 'city', 'state', 'address', 'created_at', 'scheduled_for', 'completed', 'review']
 
 class UserActivitySerializer(serializers.ModelSerializer):
     user = UserListingField(queryset=CustomUser.objects.all())
