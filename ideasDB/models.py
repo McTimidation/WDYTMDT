@@ -22,6 +22,9 @@ class Outing(models.Model):
 
     def __str__(self):
         return self.name
+
+class Cuisine(models.Model):
+    name = models.CharField(max_length=30)
     
 
 class Activity(models.Model):
@@ -36,6 +39,7 @@ class Activity(models.Model):
     created_at = models.DateField(auto_now=True)
     scheduled_for = models.DateTimeField(auto_now=False, auto_now_add=False, null=True)
     completed = models.BooleanField(default=False)
+    review = models.CharField(max_length=500, null=True, blank=True)
 
     def __str__(self):
         return self.name
